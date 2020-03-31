@@ -12,16 +12,13 @@ package ccuenta;
 public class Main {
 
     /**
-     * @param args the command line arguments
+     * @param cuentaUno
      */
-    public static void main(String[] args) {
-        CCuenta miCuenta;
-        double saldoActual;
-        
-        miCuenta = new CCuenta("Juan López","1000-2365-85-123456789",2500,0);
+    
+    public void operacionesCuenta(CCuenta cuentaUno){
         try 
         {
-            miCuenta.retirar(2300);
+            cuentaUno.retirar(2300);
         } catch (Exception e)
         {
             System.out.print("Fallo al retirar");
@@ -30,12 +27,20 @@ public class Main {
         try
         {
             System.out.println("Ingreso en cuenta");
-            miCuenta.ingresar(695);
+            cuentaUno.ingresar(695);
         } catch (Exception e)
         {
             System.out.print("Fallo al ingresar");
         }
-        saldoActual = miCuenta.estado();
+    }
+    
+    public static void main(String[] args) {
+        CCuenta cuentaUno;
+        double saldoActual;
+        
+        cuentaUno = new CCuenta("Juan López","1000-2365-85-123456789",2500,0);
+        
+        saldoActual = cuentaUno.estado();
         System.out.println("El saldo actual es"+ saldoActual );
     }
 
